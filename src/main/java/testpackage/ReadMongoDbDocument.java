@@ -1,12 +1,17 @@
 package testpackage;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
+
 import org.bson.Document;
-import org.bson.types.ObjectId;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.opencsv.CSVWriter;
 
 public class ReadMongoDbDocument {
 	
@@ -32,9 +37,25 @@ public class ReadMongoDbDocument {
     	System.out.print("key :" + key + student1.get(key)  );
 
     }
+    String outputFile="C://Users/Dell/eclipse-workspace/abc.csv";
     
     
 	System.out.print("deepak");
+	try {
+		Writer writer=new BufferedWriter(new FileWriter(outputFile));
+		
+		CSVWriter csvWriter=new CSVWriter(writer);
+		String[] myStrings = { "deepak1", "deepak2", "deepak3" };
+		csvWriter.writeNext( myStrings);
+		/*
+		 * for(BmcQueMesssage msg: bmcQueMsgs) {
+		 * csvWriter.writeNext(detailFunc.apply(msg)); }
+		 */
+		csvWriter.flush();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	
 	
 	
