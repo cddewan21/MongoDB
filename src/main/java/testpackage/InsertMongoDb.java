@@ -29,8 +29,8 @@ public class InsertMongoDb {
     MongoCollection<Document> gradesCollection = database.getCollection("vvvvvv");
 
 	Document student = new Document("_id", new ObjectId());
-	student.append("student_id", 10000)
-	       .append("class_id", 1d);
+	student.append("student_id", new String("100001"))
+	       .append("class_id", new String("10000"));
 	
 	gradesCollection.insertOne(student);
 	System.out.print("deepak");
